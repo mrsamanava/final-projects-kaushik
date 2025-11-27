@@ -1,0 +1,18 @@
+# Global Happiness Report Analysis - 2015
+# Author: <self>
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("2015.csv")
+
+print(df.head())
+
+top10 = df.sort_values("Happiness Score", ascending=False).head(10)
+
+plt.bar(top10["Country"], top10["Happiness Score"])
+plt.xticks(rotation=90)
+plt.xlabel("Country")
+plt.ylabel("Happiness Score")
+plt.title("Top 10 Happiest Countries - 2015")
+plt.show()
